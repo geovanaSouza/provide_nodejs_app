@@ -8,4 +8,5 @@ Steps
 -----
 
 For provide VirtualMachine via Vagrant + VirtualBox:
+
 vagrant up
