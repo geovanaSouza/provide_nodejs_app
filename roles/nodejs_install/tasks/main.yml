@@ -1,0 +1,9 @@
+---
+- name: Download script install package repo nodejs
+  get_url: url=https://deb.nodesource.com/setup_4.x dest=/tmp/setup_nodejs.sh mode=755
+
+- name: Install package repo nodejs
+  command: /tmp/setup_nodejs.sh
+
+- name: Install nodejs
+  apt: name=nodejs state=latest

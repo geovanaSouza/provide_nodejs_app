@@ -1,9 +1,10 @@
 Requirements
 ------------
 
-* Vagrant 1.8.4
 * VirtualBox 5.0.22
 * Ansible 2.1.0.0
+* Vagrant 1.8.4
+* Plugin Vagrant: vagrant-hostmanager (1.8.2)
 
 Directories
 ------------
