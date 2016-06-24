@@ -1,6 +1,17 @@
-[nodejs]
 nodejs ansible_ssh_host=127.0.0.1 ansible_ssh_port=2222 ansible_ssh_user='ubuntu'
+
+[nodejs]
+nodejs
 
 [nodejs:vars]
 ansible_ssh_private_key_file='./.vagrant/machines/default/virtualbox/private_key'
 ansible_become=yes
+
+[app1]
+nodejs
+
+[app1:vars]
+app1_user=hl_world
+app1_group=hl_world
+app1_name=hl_world
+app1_dependencies="express"

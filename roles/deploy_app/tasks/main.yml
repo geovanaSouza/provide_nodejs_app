@@ -1,0 +1,19 @@
+---
+- name: Create group app
+  group: name={{ app_group }} state=present
+
+- name: Create app user
+  user: name={{ app_user }} group={{ app_group }}
+
+- name: Create dir app
+  file:
+    path: /opt/{{ app_name }}
+    state: directory
+    owner: "{{ app_user }}"
+    group: "{{ app_group }}"
+
+- name: Install dependencies
+  npm: name={{ item }} path=/opt/{{ app_name }} state=latest
+  when: app_dependencies is defined 
+  with_items: app_dependencies.split(',')
+
