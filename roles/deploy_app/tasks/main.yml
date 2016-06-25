@@ -12,8 +12,16 @@
     owner: "{{ app_user }}"
     group: "{{ app_group }}"
 
-- name: Install dependencies
+- name: Install app
+  git:
+    repo: "{{ git_repo }}"
+    dest: /opt/{{ app_name }}
+    force: yes
+
+- name: Install dependencies defined in inventory file
   npm: name={{ item }} path=/opt/{{ app_name }}
   when: app_dependencies is defined
   with_items: app_dependencies.split(',')
 
+- name: Install dependencies from package.json
+  npm: path=/opt/{{ app_name }}
