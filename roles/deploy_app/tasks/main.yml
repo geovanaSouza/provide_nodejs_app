@@ -13,7 +13,7 @@
     group: "{{ app_group }}"
 
 - name: Install dependencies
-  npm: name=express path=/opt/{{ app_name }}
+  npm: name={{ item }} path=/opt/{{ app_name }}
   when: app_dependencies is defined
   with_items: app_dependencies.split(',')
 
