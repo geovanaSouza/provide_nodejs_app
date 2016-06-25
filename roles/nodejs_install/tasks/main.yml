@@ -7,3 +7,9 @@
 
 - name: Install nodejs
   apt: name=nodejs state=latest
+
+- name: Install dependencies global
+  npm: name=pm2 global=yes
+
+- name: Install pm2 for manage nodejs apps
+  command: pm2 startup systemd

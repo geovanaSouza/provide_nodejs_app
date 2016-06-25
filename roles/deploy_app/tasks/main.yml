@@ -18,10 +18,16 @@
     dest: /opt/{{ app_name }}
     force: yes
 
-- name: Install dependencies defined in inventory file
+- name: Install dependencies defined
   npm: name={{ item }} path=/opt/{{ app_name }}
   when: app_dependencies is defined
   with_items: app_dependencies.split(',')
 
 - name: Install dependencies from package.json
   npm: path=/opt/{{ app_name }}
+
+- name: Start app
+  command: pm2 start server.js -i max --name={{ app_name }}
+  args:
+    chdir: /opt/{{ app_name }}/
+
