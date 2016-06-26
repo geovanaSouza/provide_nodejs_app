@@ -1,9 +1,15 @@
 ---
+- name: Verify if node app repo exist
+  stat: path=/etc/apt/sources.list.d/nodesource.list
+  register: result_apt_repo
+
 - name: Download script install package repo nodejs
   get_url: url=https://deb.nodesource.com/setup_4.x dest=/tmp/setup_nodejs.sh mode=755
+  when: result_apt_repo.stat.exists != true
 
 - name: Install package repo nodejs
   command: /tmp/setup_nodejs.sh
+  when: result_apt_repo.stat.exists != true
 
 - name: Install nodejs
   apt: name=nodejs state=latest

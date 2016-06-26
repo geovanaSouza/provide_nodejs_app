@@ -10,9 +10,3 @@ ansible_become=yes
 [app1]
 nodejs
 
-[app1:vars]
-app1_user=hl_world
-app1_group=hl_world
-app1_name=hl_world
-app1_dependencies="express"
-git1_repo=https://github.com/geovanaSouza/nodejs_app.git
