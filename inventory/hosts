@@ -10,3 +10,5 @@ ansible_become=yes
 [app1]
 nodejs
 
+[web_front]
+nodejs

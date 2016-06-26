@@ -4,4 +4,6 @@ app1_name: hl_world
 app1_dependencies:
   - express
 git1_repo: https://github.com/geovanaSouza/nodejs_app.git
+app1_domain: nodejs
+app1_backend_url: http://localhost:3000
 
