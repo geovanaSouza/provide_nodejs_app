@@ -1,0 +1,22 @@
+---
+- name: Verify if backup exist
+  stat: path=/opt/{{ app_name}}.tar
+  register: result_bkp
+
+- name: Remove version current
+  file:
+    path: /opt/{{ app_name }}
+    state: absent
+  when: result_bkp.stat.exists != true
+
+- name: Rollback app
+  unarchive:
+    src: /opt/{{ app_name}}.tar
+    copy: no
+    dest: /opt/
+    owner: "{{ app_user }}"
+    group: "{{ app_group }}"
+  when: result_bkp.stat.exists != true
+  notify:
+    - Restart app
+

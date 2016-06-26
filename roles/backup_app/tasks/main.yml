@@ -1,9 +1,10 @@
 ---
-
 - name: Verify app dir exists
   stat: path=/opt/{{ app_name }}
   register: result_dir
 
 - name: Create backup app
-  command: tar -zcvf /opt/{{ app_name }}.tar /opt/{{ app_name }}  
+  command: tar -zcvf /opt/{{ app_name }}.tar {{ app_name }}  
+  args:
+    chdir: /opt/
   when: result_dir.stat.isdir is defined and result_dir.stat.isdir

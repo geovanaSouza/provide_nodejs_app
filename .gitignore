@@ -2,3 +2,4 @@
 /*.log
 /inventoy/hosts
 /playbooks/config.retry
+/playbooks/rollback.retry

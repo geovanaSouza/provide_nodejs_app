@@ -11,15 +11,18 @@
     state: directory
     owner: "{{ app_user }}"
     group: "{{ app_group }}"
-  notify:
-    - Start app
 
 - name: Install app
   git:
     repo: "{{ git_repo }}"
     dest: /opt/{{ app_name }}
   notify:
-    - restart app
+    - Restart app
+
+- name: Start app
+  command: pm2 start server.js -i max --name={{ app_name }}
+  args:
+    chdir: /opt/{{ app_name }}/
 
 - name: Install dependencies defined
   npm: name={{ item }} path=/opt/{{ app_name }}

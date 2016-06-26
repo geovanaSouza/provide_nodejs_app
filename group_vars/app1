@@ -3,6 +3,5 @@ app1_group: hl_world
 app1_name: hl_world
 app1_dependencies:
   - express
-  - coffee-script
 git1_repo: https://github.com/geovanaSouza/nodejs_app.git
 
