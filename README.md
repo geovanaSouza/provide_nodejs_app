@@ -46,8 +46,8 @@ Parameters:
 
 * 1 - requests_number
 * 2 - concorrency_number
-* 3 - keep_alive (true|false)>
-* 4 - url>/
+* 3 - keep_alive (true|false)
+* 4 - url
 
 Author Information
 ------------------
