@@ -13,7 +13,7 @@ if [ $# -ne 4 ]; then
 	exit 1
 fi
 
-if [ $1 -le $2 ]; then
+if [ $1 -lt $2 ]; then
 	echo "request number ($1) can not be greater than concorrency number ($2)"
 	exit 1
 fi
