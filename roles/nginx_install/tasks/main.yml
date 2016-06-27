@@ -1,3 +1,17 @@
 ---
 - name: Install nginx
-  apt: name=nginx state=latest
+  apt: name={{ item }} state=latest
+  with_items:
+    - nginx
+    - supervisor
+
+- name: Enable service nginx-supervisor
+  template:
+    src: nginx.conf
+    dest: /etc/supervisor/conf.d/nginx.conf
+
+- name: Disable nginx service
+  service: name=nginx state=stopped enabled=no
+
+- name: Enable supervisor
+  service: name=supervisor state=started enabled=yes

@@ -5,6 +5,7 @@ Requirements
 * Ansible 2.1.0.0
 * Vagrant 1.8.4
 * Plugin Vagrant: vagrant-hostmanager (1.8.2)
+* Plugin Vagrant: vagrant-timezone (1.1.0)
 
 Directories
 ------------

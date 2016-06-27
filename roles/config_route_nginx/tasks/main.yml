@@ -7,7 +7,7 @@
   register: result_cert_ssl
 
 - name: Generate certs SSL
-  command: openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout "/etc/nginx/ssl/{{ app_name }}.key" -out "/etc/nginx/ssl/{{ app_name }}.crt" -subj "/C=BR/ST=SC/L=Florianopolis/O=geovanaSouza/OU=IT/CN=nodejs"
+  command: openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout "/etc/nginx/ssl/{{ app_name }}.key" -out "/etc/nginx/ssl/{{ app_name }}.crt" -subj "/C=BR/ST=SC/L=Florianopolis/O=geovanaSouza/OU=IT/CN={{ domain_name }}"
   when: result_cert_ssl.stat.exists != true
 
 - name: Include VirtualHost
