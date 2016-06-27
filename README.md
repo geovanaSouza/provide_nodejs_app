@@ -31,6 +31,24 @@ Execute playbook (only if dont use the vagrant):
 
 ansible-playbook -i inventory/hosts playbook/config.yml
 
+Stress Test
+-----------
+
+Requirements:
+
+* apache2-utils ( apt-get install apache2-utils)
+
+Execution example:
+
+./scripts/stress_test.sh 1000 50 true http://hl_world.192.168.33.10.xip.io/
+
+Parameters:
+
+* 1 - requests_number
+* 2 - concorrency_number
+* 3 - keep_alive (true|false)>
+* 4 - url>/
+
 Author Information
 ------------------
 Geovana Possenti de Souza - geovana.possenti@gmail.com
