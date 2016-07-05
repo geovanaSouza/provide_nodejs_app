@@ -5,7 +5,6 @@ Requirements
 * Ansible 2.1.0.0
 * Vagrant 1.8.4
 * Plugin Vagrant: vagrant-hostmanager (1.8.2)
-* Plugin Vagrant: vagrant-timezone (1.1.0)
 
 Directories
 ------------
@@ -21,7 +20,7 @@ Configure host inventory for the playbook:
 
 Generate inventory - Copy file inventory/hosts.tmpl and modify the information with your data about host to be configured
 
-copy inventory/hosts.tmpl inventory/hosts
+cp inventory/hosts.tmpl inventory/hosts
 
 For provide VirtualMachine via Vagrant + VirtualBox configuring with ansible (opcional):
 
@@ -37,10 +36,11 @@ Stress Test
 Requirements:
 
 * apache2-utils ( apt-get install apache2-utils)
+* gnuplot-x11
 
 Execution example:
-
-./scripts/stress_test.sh 1000 50 true http://hl_world.192.168.33.10.xip.io/
+cd scripts
+./stress_test.sh 1000 50 true http://hl_world.192.168.33.10.xip.io/
 
 Parameters:
 
