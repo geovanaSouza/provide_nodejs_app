@@ -40,6 +40,7 @@ Requirements:
 
 Execution example:
 cd scripts
+
 ./stress_test.sh 1000 50 true http://hl_world.192.168.33.10.xip.io/
 
 Parameters:
